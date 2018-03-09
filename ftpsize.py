@@ -1,10 +1,11 @@
 import os
+import sys
 import ftputil
 from hurry.filesize import size
 
 total=0
 
-top_levels=[]
+top_levels=sys.argv[1:]
 
 with ftputil.FTPHost(os.environ['HOST'], os.environ['USER'], os.environ['PASS']) as host:
     for level in top_levels:
