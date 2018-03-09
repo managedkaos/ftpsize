@@ -12,8 +12,8 @@ with ftputil.FTPHost(os.environ['HOST'], os.environ['USER'], os.environ['PASS'])
         for root, dirs, files in host.walk(level):
             for name in files:
                 target=host.path.join(root, name)
-                print(target, "=", size(host.path.getsize(target)))
+                print("{0:>7s} {1:s}".format(size(host.path.getsize(target)),target))
                 total=total+host.path.getsize(target)
 
-print("Total=",size(total))
+print("{0:>7s} TOTAL".format(size(total)))
 
